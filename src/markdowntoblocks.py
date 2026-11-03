@@ -5,11 +5,8 @@ def markdown_to_blocks(markdown):
     blocks_list = markdown.split("\n\n")
     stripped_blocks_list = [item.strip() for item in blocks_list]
 
-    for i in range(len(stripped_blocks_list)):
-        if stripped_blocks_list[i] == "":
-            del stripped_blocks_list[i]
 
-    return stripped_blocks_list
+    return [block for block in stripped_blocks_list if block != ""]
 
 
 
