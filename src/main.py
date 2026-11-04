@@ -1,11 +1,15 @@
 import os
 import shutil
+import sys
 from generatepagesrecursive import generate_pages_recursive
+
+
+basepath = sys.argv[1] if sys.argv[1] else "/"
 
 
 def main():
     copy_static("static", "public")
-    generate_pages_recursive("content", "template.html", "public")
+    generate_pages_recursive("content", "template.html", "docs", basepath)
 
 def copy_static(src, dst):
     if os.path.exists(dst):
